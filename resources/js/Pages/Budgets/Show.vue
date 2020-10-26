@@ -1,0 +1,77 @@
+<template>
+    <layout :auth_url="auth_url">
+        <h1 id="income" class="center-align">Budget for</h1>
+        <h2 class="center-align">{{ humanDate(budget.start_date) }} - {{ humanDate(budget.end_date) }}</h2>
+        <div class="divider"/>
+        <h2 class="center-align">Incomes</h2>
+        <div class="row">
+            <div class="col s12">
+                <income-table data-aos="fade-in-up" :budget="budget.id" :incomes="incomes"></income-table>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <h2 id="expense" class="center-align">Expenses</h2>
+        <div class="row">
+            <div class="col s12">
+                <expense-table data-aos="fade-in-up" :budget="budget.id" :expenses="expenses"></expense-table>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <h2 class="center-align">Totals</h2>
+        <div class="row">
+            <div class="col s12">
+                <total-table data-aos="fade-in-up" :income="total_income" :expense="total_expense"></total-table>
+            </div>
+        </div>
+    </layout>
+</template>
+
+<script>
+import Layout from "../../components/Layout";
+import IncomeTable from "../../components/Income/IncomeTable";
+import ExpenseTable from "../../components/Expense/ExpenseTable";
+import TotalTable from "../../components/Total/TotalTable";
+import dayjs from 'dayjs';
+export default {
+    name: "Show",
+    components: {TotalTable, ExpenseTable, IncomeTable, Layout},
+    metaInfo: {
+        title: 'View Budget',
+        titleTemplate: '%s | Budget.io',
+        htmlAttrs: {
+            lang: 'en',
+        }
+    },
+    computed: {
+        total_income: function() {
+            let income = 0;
+            for (let inc of this.incomes) {
+                income = income + parseFloat(inc.amount);
+            }
+            return income;
+        },
+        total_expense: function() {
+            let expense = 0;
+            for (let exp of this.expenses) {
+                expense = expense + parseFloat(exp.amount);
+            }
+            return expense;
+        }
+    },
+    methods: {
+        humanDate: function(timestamp) {
+            return dayjs(timestamp).format('MMM D, YYYY')
+        }
+    },
+    props: {
+        budget: Object,
+        incomes: Array,
+        expenses: Array,
+        auth_url: String,
+    }
+}
+</script>
+
+<style scoped>
+
+</style>

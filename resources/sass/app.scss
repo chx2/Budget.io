@@ -1,0 +1,87 @@
+input:not([type]):focus:not([readonly]),
+input[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=password]:not(.browser-default):focus:not([readonly]),
+input[type=email]:not(.browser-default):focus:not([readonly]),
+input[type=url]:not(.browser-default):focus:not([readonly]),
+input[type=time]:not(.browser-default):focus:not([readonly]),
+input[type=date]:not(.browser-default):focus:not([readonly]),
+input[type=datetime]:not(.browser-default):focus:not([readonly]),
+input[type=datetime-local]:not(.browser-default):focus:not([readonly]),
+input[type=tel]:not(.browser-default):focus:not([readonly]),
+input[type=number]:not(.browser-default):focus:not([readonly]),
+input[type=search]:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #43A047!important;
+    box-shadow: 0 1px 0 0 #43A047!important;
+}
+
+.datepicker-table td.is-today,
+.datepicker-cancel,
+.datepicker-clear,
+.datepicker-today,
+.datepicker-done,
+.dropdown-content li>a, .dropdown-content li>span,
+.collection a.collection-item,
+.active, .input-field .prefix.active, input:not([type]):focus:not([readonly]),
+input[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=password]:not(.browser-default):focus:not([readonly]),
+input[type=email]:not(.browser-default):focus:not([readonly]),
+input[type=url]:not(.browser-default):focus:not([readonly]),
+input[type=time]:not(.browser-default):focus:not([readonly]),
+input[type=date]:not(.browser-default):focus:not([readonly]),
+input[type=datetime]:not(.browser-default):focus:not([readonly]),
+input[type=datetime-local]:not(.browser-default):focus:not([readonly]),
+input[type=tel]:not(.browser-default):focus:not([readonly]),
+input[type=number]:not(.browser-default):focus:not([readonly]),
+input[type=search]:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+    color: #43A047 !important;
+}
+.datepicker-date-display, .datepicker-table td.is-selected {
+    background-color: #43A047 !important;
+}
+.bold {
+    font-weight: bold;
+}
+.content {
+    @media only screen and (min-width: 600px) {
+        padding-left: 200px;
+    }
+}
+.error-field {
+    color: red;
+    padding-left: 3rem;
+    font-weight: bold;
+}
+.full {
+    height: 100vh;
+}
+.full-width {
+    width: 100%;
+}
+.flex-center {
+    @media only screen and (min-width: 992px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+.cursor-pointer {
+    cursor: pointer;
+}
+.divider {
+    margin-bottom: 2em;
+}
+.panel {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+.no-pad {
+    padding: 0!important;
+}
+.row {
+    margin: 0;
+}
+.btn-block {
+    width: 100%;
+}
