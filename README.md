@@ -20,7 +20,14 @@ improvements.
 
 ## Installing Budget.io
 
-1. Replace the following values in the `env.example` file 
+1. Install dependencies via Composer & NPM:
+
+```
+composer install
+npm install
+```
+
+2. Replace the following values in the `env.example` file 
 with you DB credentials:
 ```
     DB_CONNECTION=
@@ -31,10 +38,11 @@ with you DB credentials:
     DB_PASSWORD=
 ```
 
-2. Generate a `.env` file by running the following commands:
+3. Generate a `.env` file by running the following commands:
 
 ```
-    cp .env.example .env
-    php artisan key:generate
+cp .env.example .env
+php artisan key:generate
 ```
-3. See [deploying Laravel applications.](https://laravel.com/docs/8.x/deployment#introduction)
+
+4. See [deploying Laravel applications.](https://laravel.com/docs/8.x/deployment#introduction)
