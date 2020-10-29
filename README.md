@@ -30,12 +30,12 @@ npm install
 2. Replace the following values in the `env.example` file 
 with you DB credentials:
 ```
-    DB_CONNECTION=
-    DB_HOST=
-    DB_PORT=
-    DB_DATABASE=
-    DB_USERNAME=
-    DB_PASSWORD=
+DB_CONNECTION=
+DB_HOST=
+DB_PORT=
+DB_DATABASE=
+DB_USERNAME=
+DB_PASSWORD=
 ```
 
 3. Generate a `.env` file & run database migrations by running the following commands:
