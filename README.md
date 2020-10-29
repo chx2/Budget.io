@@ -25,6 +25,7 @@ improvements.
 ```
 composer install
 npm install
+npm run production
 ```
 
 2. Replace the following values in the `env.example` file 
