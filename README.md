@@ -38,11 +38,12 @@ with you DB credentials:
     DB_PASSWORD=
 ```
 
-3. Generate a `.env` file by running the following commands:
+3. Generate a `.env` file & run database migrations by running the following commands:
 
 ```
 cp .env.example .env
 php artisan key:generate
+php artisan migrate
 ```
 
 4. See [deploying Laravel applications.](https://laravel.com/docs/8.x/deployment#introduction)
