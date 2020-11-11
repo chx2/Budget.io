@@ -4,6 +4,7 @@
         <div class="divider"/>
         <div class="row">
             <div class="col m12 full" data-aos="fade-in" v-if="budgets.length > 0">
+                <message v-if="prompt" :success="success" :message="message"></message>
                 <div class="row">
                     <div class="col m12">
                         <label>
@@ -44,11 +45,12 @@
 
 <script>
 import Layout from "../../components/Layout";
+import Message from "../../components/Message";
 import LineChart from "../../components/Charts/LineChart";
 import Spinner from "../../components/Spinner";
 export default {
     name: "Index",
-    components: {Spinner, LineChart, Layout},
+    components: {Message, Spinner, LineChart, Layout},
     metaInfo: {
         title: 'View Stats',
         titleTemplate: '%s | Budget.io',
@@ -56,9 +58,19 @@ export default {
             lang: 'en',
         }
     },
+    created() {
+      if (this.budgets.length === 1) {
+        this.prompt = true;
+        this.success = false;
+        this.message = 'You need to have at least 2 budgets to chart results';
+      }
+    },
     data () {
         return {
             loading: null,
+            prompt: null,
+            success: null,
+            message: '',
             selected: [],
             chartData: {
                 labels: [],

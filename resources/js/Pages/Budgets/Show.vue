@@ -23,24 +23,45 @@
                 <total-table data-aos="fade-in-up" :income="total_income" :expense="total_expense"></total-table>
             </div>
         </div>
+        <message v-if="prompt" :success="success" :message="message"></message>
     </layout>
 </template>
 
 <script>
 import Layout from "../../components/Layout";
+import Message from "../../components/Message";
 import IncomeTable from "../../components/Income/IncomeTable";
 import ExpenseTable from "../../components/Expense/ExpenseTable";
 import TotalTable from "../../components/Total/TotalTable";
 import dayjs from 'dayjs';
 export default {
     name: "Show",
-    components: {TotalTable, ExpenseTable, IncomeTable, Layout},
+    components: {Message, TotalTable, ExpenseTable, IncomeTable, Layout},
     metaInfo: {
         title: 'View Budget',
         titleTemplate: '%s | Budget.io',
         htmlAttrs: {
             lang: 'en',
         }
+    },
+    data() {
+      return {
+        prompt: null,
+        success: null,
+        message: ''
+      }
+    },
+    created() {
+      if (this.total_income - this.total_expense > 0) {
+        this.prompt = true;
+        this.success = true;
+        this.message = 'Your ending net balance is positive!';
+      }
+      else if (this.total_income - this.total_expense < 0) {
+        this.prompt = true;
+        this.success = false;
+        this.message = 'Your ending net balance is negative.';
+      }
     },
     computed: {
         total_income: function() {
@@ -56,7 +77,7 @@ export default {
                 expense = expense + parseFloat(exp.amount);
             }
             return expense;
-        }
+        },
     },
     methods: {
         humanDate: function(timestamp) {
