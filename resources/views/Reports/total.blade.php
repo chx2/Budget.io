@@ -45,8 +45,8 @@
     <hr/>
 
     <h4 style="text-align: right">Totals</h4>
-    <p style="text-align: right">{{ $gain }}</p>
-    <p style="text-align: right">- {{ $loss }}</p>
+    <p style="text-align: right">{{ number_format($gain) }}</p>
+    <p style="text-align: right">- {{ number_format($loss) }}</p>
     <hr style="width: 10%;text-align: right"/>
     <p style="text-align: right;font-weight: bold">{{ number_format($gain - $loss, 2) }}</p>
 </body>
