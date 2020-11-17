@@ -17,8 +17,8 @@ class CreateBudgetsTable extends Migration
             $table->bigIncrements('id');
             $table->text('name');
             $table->integer('user_id');
-            $table->timestamp('start_date');
-            $table->timestamp('end_date');
+            $table->timestamp('start_date')->nullable()->default(null);
+            $table->timestamp('end_date')->nullable()->default(null);
             $table->softDeletes();
             $table->timestamps();
         });
