@@ -49,7 +49,7 @@ class ReportController extends Controller
 
         //Total Report
         if ($request->type === 'total') {
-            $pdf = PDF::loadView('reports.total', [
+            $pdf = PDF::loadView('total', [
                 'budget'    => $budget,
                 'incomes'   => $incomes,
                 'expenses'  => $expenses,
@@ -58,29 +58,29 @@ class ReportController extends Controller
                 'gain'      => $gain,
                 'loss'      => $loss
             ]);
-            return $pdf->stream('reports.total.pdf');
+            return $pdf->stream('total.pdf');
         }
         //Income
         else if($request->type === 'income') {
-            $pdf = PDF::loadView('reports.income', [
+            $pdf = PDF::loadView('income', [
                 'budget'    => $budget,
                 'incomes'   => $incomes,
                 'start'     => Carbon::parse($budget->start_date)->toFormattedDateString(),
                 'end'       => Carbon::parse($budget->end_date)->toFormattedDateString(),
                 'gain'      => $gain,
             ]);
-            return $pdf->stream('reports.income.pdf');
+            return $pdf->stream('income.pdf');
         }
         //Expenses, possibly more future ones
         else {
-            $pdf = PDF::loadView('reports.expense', [
+            $pdf = PDF::loadView('expense', [
                 'budget'    => $budget,
                 'expenses'  => $expenses,
                 'start'     => Carbon::parse($budget->start_date)->toFormattedDateString(),
                 'end'       => Carbon::parse($budget->end_date)->toFormattedDateString(),
                 'loss'      => $loss
             ]);
-            return $pdf->stream('reports.income.pdf');
+            return $pdf->stream('income.pdf');
         }
     }
 }

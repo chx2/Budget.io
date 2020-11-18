@@ -14,7 +14,7 @@
                         </div>
                         <div class="input-field">
                             <i class="material-icons prefix">fingerprint</i>
-                            <input id="password" type="text" name="password" class="validate" v-model="form.password">
+                            <input id="password" type="password" name="password" class="validate" v-model="form.password">
                             <label for="password">Password</label>
                             <div data-aos="fade-in-up" class="error-field" v-if="$page.errors.password">{{ $page.errors.password[0] }}</div>
                         </div>

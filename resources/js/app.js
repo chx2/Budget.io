@@ -9,10 +9,6 @@ import 'material-design-icons/iconfont/material-icons.css'
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 
-//Because Mix is broken...
-import CssBase from "css-loader/lib/css-base";
-import AddStyles from "style-loader/lib/addStyles";
-
 //Style Library Calls
 AOS.init();
 InertiaProgress.init({
