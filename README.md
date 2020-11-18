@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://github.com/chx2/Budget.io/blob/master/public/img/logo.png" alt="Budget.io Logo">
+</p>
+
 ## About Budget.io
 
 Budget.io is a web-based budget application written in the 
