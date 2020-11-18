@@ -1,7 +1,7 @@
 <template>
     <layout :auth_url="auth_url">
         <div class="row">
-            <div class="col m12 full valign-wrapper">
+            <div class="col m12 full full-width valign-wrapper">
                 <form data-aos="fade-up" class="card full-width" @submit.prevent="submit">
                     <div class="card-content">
                         <h1 class="center-align">Login</h1>

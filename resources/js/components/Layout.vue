@@ -2,10 +2,10 @@
     <div>
         <navigation :auth_url="auth_url"></navigation>
         <main class="row content">
-            <div class="col m12 background">
+            <div class="col m12 background full-width">
                 <div class="container">
                     <div class="row">
-                        <div class="col m12 full">
+                        <div class="col m12 full full-width">
                             <slot />
                         </div>
                     </div>
