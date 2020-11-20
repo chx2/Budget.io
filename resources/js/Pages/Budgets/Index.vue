@@ -15,9 +15,11 @@
                                     <p class="green-text center-align">{{ humanDate(budget.start_date) }} - {{ humanDate(budget.end_date) }}</p>
                                 </div>
                             </a>
+                          <!--
                             <div class="col s12 m2">
                                 <a class="collection-item cursor-pointer full-width center-align hoverable tooltipped" data-position="top" data-tooltip="Archive Budget" @click="deleteBudget(budget)"><i class="material-icons">archive</i></a>
                             </div>
+                          -->
                             <div class="col s12 m2">
                                 <a class="collection-item cursor-pointer full-width center-align hoverable tooltipped" data-position="bottom" data-tooltip="Delete Budget" @click="deleteBudget(budget)"><i class="material-icons">delete</i></a>
                             </div>

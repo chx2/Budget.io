@@ -18,13 +18,6 @@ InertiaProgress.init({
     showSpinner: true,
 })
 
-//Create a directive to focus on elements
-Vue.directive('focus', {
-    inserted: function (el) {
-        el.focus();
-    }
-})
-
 //Initialize Inertia
 Vue.use(InertiaApp)
 Vue.prototype.$route = (...args) => route(...args).url()
