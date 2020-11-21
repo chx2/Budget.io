@@ -4,6 +4,8 @@
 
 ## About Budget.io
 
+It is cool.
+
 Budget.io is a web-based budget application written in the 
 [Laravel](https://laravel.com/) framework, utilizing the 
 [Inertia.js](https://inertiajs.com/) driver to behave as 
