@@ -30,12 +30,14 @@ Route::post('/register', [UserController::class, 'store']);
 
 //Resources
 Route::resource('users', UserController::class);
-Route::resource('budgets', BudgetController::class)->middleware('auth');
-Route::resource('incomes', IncomeController::class)->middleware('auth');
-Route::resource('expenses', ExpenseController::class)->middleware('auth');
-Route::resource('stats', StatController::class)->middleware('auth');
-
-//MISC
-Route::resource('reports', ReportController::class)->middleware('auth');
-Route::get('/export', [ReportController::class, 'show'])->middleware('auth');
+Route::group(['middleware' => ['auth']], function() {
+  Route::resource('budgets', BudgetController::class);
+  Route::resource('incomes', IncomeController::class);
+  Route::resource('expenses', ExpenseController::class);
+  Route::resource('stats', StatController::class); 
+  
+  //MISC
+  Route::resource('reports', ReportController::class);
+  Route::get('/export', [ReportController::class, 'show']);
+});
 
