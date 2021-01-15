@@ -5,7 +5,7 @@
         </div>
 
         <!-- Sidebar navigation -->
-        <div class="collection hide-on-small-only" v-if="auth_url === 'login'">
+        <div class="collection hide-on-small-only" v-if="!auth">
             <inertia-link class="collection-item" :class="{'is-active': (active === 'login')}" href="/login">Login</inertia-link>
             <inertia-link class="collection-item" :class="{'is-active': (active === 'register')}" href="/register">Register</inertia-link>
         </div>
@@ -18,7 +18,7 @@
 
         <a href="#" data-target="mobile-demo" class="sidenav-trigger hide-on-med-and-up center-align white-text"><i class="material-icons small">menu</i></a>
 
-        <ul class="sidenav" id="mobile-demo" v-if="auth_url === 'login'">
+        <ul class="sidenav" id="mobile-demo" v-if="!auth">
             <li><h3 class="center-align">Budget.io</h3></li>
             <li class="divider"></li>
             <li><inertia-link href="/">Home</inertia-link></li>
@@ -43,11 +43,9 @@ export default {
     name: "Navigation",
     data() {
         return {
+            auth: this.$page.props.auth,
             active: location.pathname.substr(1)
         }
-    },
-    props: {
-        auth_url: String
     }
 }
 </script>

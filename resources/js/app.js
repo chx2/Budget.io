@@ -1,6 +1,6 @@
 require('./bootstrap');
 
-import { InertiaApp } from '@inertiajs/inertia-vue'
+import { App, plugin } from '@inertiajs/inertia-vue'
 import { InertiaProgress } from '@inertiajs/progress'
 import Vue from 'vue'
 import VueMeta from 'vue-meta'
@@ -19,18 +19,19 @@ InertiaProgress.init({
 })
 
 //Initialize Inertia
-Vue.use(InertiaApp)
-Vue.prototype.$route = (...args) => route(...args).url()
-
+Vue.use(plugin)
 //Enable meta in components
 Vue.use(VueMeta)
 
-const app = document.getElementById('app')
+Vue.prototype.$route = route
+
+const el = document.getElementById('app')
+
 new Vue({
-    render: h => h(InertiaApp, {
+    render: h => h(App, {
         props: {
-            initialPage: JSON.parse(app.dataset.page),
-            resolveComponent: name => import(`./Pages/${name}`).then(module => module.default),
+            initialPage: JSON.parse(el.dataset.page),
+            resolveComponent: name => require(`./Pages/${name}`).default,
         },
     }),
-}).$mount(app)
+}).$mount(el)

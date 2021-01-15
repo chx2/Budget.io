@@ -1,5 +1,5 @@
 <template>
-    <layout :auth_url="auth_url">
+    <div>
         <h1 id="income" class="center-align">Budget for</h1>
         <h2 class="center-align">{{ humanDate(budget.start_date) }} - {{ humanDate(budget.end_date) }}</h2>
         <div class="divider"/>
@@ -24,7 +24,7 @@
                 <message v-if="prompt" :success="success" :message="message"></message>
             </div>
         </div>
-    </layout>
+    </div>
 </template>
 
 <script>
@@ -36,7 +36,8 @@ import TotalTable from "../../components/Total/TotalTable";
 import dayjs from 'dayjs';
 export default {
     name: "Show",
-    components: {Message, TotalTable, ExpenseTable, IncomeTable, Layout},
+    layout: Layout,
+    components: {Message, TotalTable, ExpenseTable, IncomeTable},
     metaInfo: {
         title: 'View Budget',
         titleTemplate: '%s | Budget.io',
@@ -87,8 +88,7 @@ export default {
     props: {
         budget: Object,
         incomes: Array,
-        expenses: Array,
-        auth_url: String,
+        expenses: Array
     }
 }
 </script>

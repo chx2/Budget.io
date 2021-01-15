@@ -12,8 +12,6 @@ class StaticController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Welcome', [
-            'auth_url' => (Auth::check()) ? 'logout' : 'login'
-        ]);
+        return Inertia::render('Welcome');
     }
 }

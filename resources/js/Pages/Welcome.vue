@@ -1,5 +1,5 @@
 <template>
-    <layout :auth_url="auth_url">
+    <div>
         <h1 class="center-align">Welcome to Budget.io</h1>
         <div class="divider"/>
         <div class="row panel">
@@ -40,23 +40,20 @@
                 <img class="responsive-img" alt="Table Icon" src="/img/chart.png">
             </div>
         </div>
-    </layout>
+    </div>
 </template>
 
 <script>
 import Layout from "../components/Layout";
 export default {
     name: "Welcome",
-    components: {Layout},
+    layout: Layout,
     metaInfo: {
         title: 'Welcome',
         titleTemplate: '%s | Budget.io',
         htmlAttrs: {
             lang: 'en',
         }
-    },
-    props: {
-        auth_url: String
     }
 }
 </script>

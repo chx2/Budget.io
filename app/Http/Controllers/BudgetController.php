@@ -32,9 +32,7 @@ class BudgetController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Budgets/Create', [
-            'auth_url' => 'logout'
-        ]);
+        return Inertia::render('Budgets/Create');
     }
 
     /**
@@ -80,8 +78,7 @@ class BudgetController extends Controller
         return Inertia::render('Budgets/Show', [
             'budget'   => $found,
             'incomes'  => $incomes,
-            'expenses' => $expenses,
-            'auth_url' => 'logout'
+            'expenses' => $expenses
         ]);
     }
 

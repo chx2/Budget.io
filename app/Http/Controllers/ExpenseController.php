@@ -28,8 +28,7 @@ class ExpenseController extends Controller
     public function create()
     {
         return Inertia::render('Expenses/Create', [
-            'budget'   => $_GET['budget'],
-            'auth_url' => 'logout'
+            'budget'   => $_GET['budget']
         ]);
     }
 
@@ -81,8 +80,7 @@ class ExpenseController extends Controller
         $edit = Expense::findOrFail($expense->id);
         return Inertia::render('Expenses/Edit', [
             'budget'   => $expense->budget_id,
-            'expense'   => $edit,
-            'auth_url' => 'logout'
+            'expense'   => $edit
         ]);
     }
 

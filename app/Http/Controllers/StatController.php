@@ -26,8 +26,7 @@ class StatController extends Controller
         return Inertia::render('Stats/Index', [
             'budgets' => $budgets,
             'incomes' => $incomes,
-            'expenses' => $expenses,
-            'auth_url' => 'logout'
+            'expenses' => $expenses
         ]);
     }
 }

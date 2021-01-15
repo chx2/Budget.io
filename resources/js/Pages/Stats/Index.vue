@@ -1,5 +1,5 @@
 <template>
-    <layout :auth_url="auth_url">
+    <div>
         <h1 class="center-align">Stats</h1>
         <div class="divider"/>
         <div class="row">
@@ -40,7 +40,7 @@
                 </div>
             </div>
         </div>
-    </layout>
+    </div>
 </template>
 
 <script>
@@ -50,7 +50,8 @@ import LineChart from "../../components/Charts/LineChart";
 import Spinner from "../../components/Spinner";
 export default {
     name: "Index",
-    components: {Message, Spinner, LineChart, Layout},
+    layout: Layout,
+    components: {Message, Spinner, LineChart},
     metaInfo: {
         title: 'View Stats',
         titleTemplate: '%s | Budget.io',
@@ -127,8 +128,7 @@ export default {
     props: {
         budgets: Array,
         incomes: Array,
-        expenses: Array,
-        auth_url: String
+        expenses: Array
     }
 }
 </script>

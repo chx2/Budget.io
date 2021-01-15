@@ -1,5 +1,5 @@
 <template>
-    <layout :auth_url="auth_url">
+    <div>
         <h1 class="center-align">Reports</h1>
         <div class="divider"></div>
         <div class="row">
@@ -46,14 +46,14 @@
                 </div>
             </div>
         </div>
-    </layout>
+    </div>
 </template>
 
 <script>
 import Layout from "../../components/Layout";
 export default {
     name: "Index",
-    components: {Layout},
+    layout: Layout,
     metaInfo: {
         title: 'Create Report',
         titleTemplate: '%s | Budget.io',
@@ -83,8 +83,7 @@ export default {
         }
     },
     props: {
-        budgets: Array,
-        auth_url: String
+        budgets: Array
     }
 }
 </script>

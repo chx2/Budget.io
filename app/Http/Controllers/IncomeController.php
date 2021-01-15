@@ -28,8 +28,7 @@ class IncomeController extends Controller
     public function create()
     {
         return Inertia::render('Incomes/Create', [
-            'budget'   => $_GET['budget'],
-            'auth_url' => 'logout'
+            'budget'   => $_GET['budget']
         ]);
     }
 
@@ -81,8 +80,7 @@ class IncomeController extends Controller
         $edit = Income::findOrFail($income->id);
         return Inertia::render('Incomes/Edit', [
             'budget'   => $income->budget_id,
-            'income'   => $edit,
-            'auth_url' => 'logout'
+            'income'   => $edit
         ]);
     }
 

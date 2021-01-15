@@ -44,9 +44,7 @@ class UserController extends Controller
             return Redirect::route('budgets.index');
         }
         else {
-            return Inertia::render('Auth/Register', [
-                'auth_url' => 'login'
-            ]);
+            return Inertia::render('Auth/Register');
         }
     }
 

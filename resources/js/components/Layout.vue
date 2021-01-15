@@ -1,6 +1,6 @@
 <template>
     <div>
-        <navigation :auth_url="auth_url"></navigation>
+        <navigation></navigation>
         <main class="row content">
             <div class="col m12 background full-width">
                 <div class="container">
@@ -21,9 +21,6 @@ import Navigation from "./Navigation";
 export default {
     name: "Layout",
     components: {Navigation},
-    props: {
-        auth_url: String
-    },
     mounted() {
         M.AutoInit();
     }

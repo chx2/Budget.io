@@ -20,9 +20,7 @@ class AuthController extends Controller
             return Redirect::route('budgets.index');
         }
         else {
-            return Inertia::render('Auth/Login', [
-                'auth_url' => 'login'
-            ]);
+            return Inertia::render('Auth/Login');
         }
     }
 
@@ -45,7 +43,6 @@ class AuthController extends Controller
         }
         else {
             return Inertia::render('Auth/Login', [
-                'auth_url' => 'login',
                 'error'    => 'Incorrect username or password'
             ]);
         }

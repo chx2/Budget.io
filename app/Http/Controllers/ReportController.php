@@ -15,8 +15,7 @@ class ReportController extends Controller
     {
         $budgets = Budget::where('user_id', Auth::id())->get();
         return Inertia::render('Reports/Index', [
-            'budgets'  => $budgets,
-            'auth_url' => 'logout'
+            'budgets'  => $budgets
         ]);
     }
 
