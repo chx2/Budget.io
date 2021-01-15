@@ -64,7 +64,7 @@ export default {
     props: {
       errors: {
         type:[ Object]
-      },
+      }
     }
 }
 </script>

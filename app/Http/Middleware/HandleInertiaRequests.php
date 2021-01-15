@@ -44,7 +44,8 @@ class HandleInertiaRequests extends Middleware
                     ? Session::get('errors')->getBag('default')->getMessages()
                     : (object) [];
             },
-            'auth' => Auth::check()
+            'auth' => Auth::check(),
+            'path' => basename(request()->path())
         ]);
     }
 }
