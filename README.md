@@ -4,8 +4,6 @@
 
 ## About Budget.io
 
-It is cool.
-
 Budget.io is a web-based budget application written in the 
 [Laravel](https://laravel.com/) framework, utilizing the 
 [Inertia.js](https://inertiajs.com/) driver to behave as 
@@ -25,8 +23,12 @@ tips for improving areas of your budget and suggested
 improvements.
 
 ## Installing Budget.io
+1. Create the intial project by running the following command via [Composer](https://getcomposer.org/)
+```
+composer create-project chx2/budget.io
+```
 
-1. Install dependencies via Composer & NPM:
+2. Install dependencies via Composer & NPM:
 
 ```
 composer install
@@ -34,8 +36,8 @@ npm install
 npm run production
 ```
 
-2. Replace the following values in the `env.example` file 
-with you DB credentials:
+3. Replace the following values in the `env.example` file 
+with your DB credentials:
 ```
 DB_CONNECTION=
 DB_HOST=
@@ -45,7 +47,7 @@ DB_USERNAME=
 DB_PASSWORD=
 ```
 
-3. Generate a `.env` file & run database migrations by running the following commands:
+4. Generate a `.env` file & run database migrations by running the following commands:
 
 ```
 cp .env.example .env
@@ -53,4 +55,4 @@ php artisan key:generate
 php artisan migrate
 ```
 
-4. See [deploying Laravel applications.](https://laravel.com/docs/8.x/deployment#introduction)
+5. See [deploying Laravel applications.](https://laravel.com/docs/8.x/deployment#introduction)
