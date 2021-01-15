@@ -4,7 +4,7 @@ import { App, plugin } from '@inertiajs/inertia-vue'
 import { InertiaProgress } from '@inertiajs/progress'
 import Vue from 'vue'
 import VueMeta from 'vue-meta'
-import 'materialize-css/dist/css/materialize.min.css'
+import '@materializecss/materialize/dist/css/materialize.min.css'
 import 'material-design-icons/iconfont/material-icons.css'
 import 'aos/dist/aos.css';
 import AOS from 'aos';
