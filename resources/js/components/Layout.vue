@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import M from 'materialize-css'
+import M from '@materializecss/materialize'
 export default {
     name: "Layout",
     mounted() {
