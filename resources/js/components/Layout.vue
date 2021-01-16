@@ -69,7 +69,7 @@ export default {
       background: darkgreen;
       box-shadow: inset -10px 0 5px -5px hsla(0,0%,0%,.25);
       @media only screen and (min-width: 600px) {
-        background: white;
+        background: #F5F5F5;
         position: fixed;
         height: 100vh;
       }
