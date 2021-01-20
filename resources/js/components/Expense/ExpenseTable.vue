@@ -15,8 +15,8 @@
                     <td>{{ expense.source }}</td>
                     <td>{{ numberWithCommas(expense.amount) }}</td>
                     <td class="cursor-pointer hoverable center-align modal-trigger" data-target="modalExpense" @click="notesModal(expense.notes)"><i class="material-icons black-text">open_in_new</i></td>
-                    <td class="cursor-pointer hoverable center-align tooltipped" data-position="left" data-tooltip="Edit"><inertia-link :href="$route('expenses.edit', expense.id)" class="black-text"><i class="center-align material-icons">edit</i></inertia-link></td>
-                    <td class="cursor-pointer hoverable center-align tooltipped" data-position="right" data-tooltip="Delete" @click="deleteExpense(expense)"><i class="material-icons">delete</i></td>
+                    <td class="cursor-pointer hoverable center-align"><inertia-link :href="$route('expenses.edit', expense.id)" class="black-text"><i class="center-align material-icons">edit</i></inertia-link></td>
+                    <td class="cursor-pointer hoverable center-align" @click="deleteExpense(expense)"><i class="material-icons">delete</i></td>
                 </tr>
             </tbody>
             <tfoot>
@@ -29,7 +29,7 @@
                 </tr>
             </tfoot>
         </table>
-        <inertia-link :href="$route('expenses.create') + '?budget=' + budget" class="btn green full-width tooltipped" data-position="bottom" data-tooltip="Add Expense"><i class="center-align material-icons">add</i></inertia-link>
+        <inertia-link :href="$route('expenses.create') + '?budget=' + budget" class="btn green full-width"><i class="center-align material-icons">add</i></inertia-link>
 
         <div id="modalExpense" class="modal">
             <div class="modal-content">

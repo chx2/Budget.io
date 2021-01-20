@@ -5,25 +5,27 @@
         <div class="row">
             <div class="col m12 full" data-aos="fade-in" v-if="budgets.length > 0">
                 <message v-if="prompt" :success="success" :message="message"></message>
-                <div class="row">
+                <div v-else>
+                  <div class="row">
                     <div class="col m12">
-                        <label>
-                            Select Budgets:
-                            <select v-model="selected" multiple @change="updateChart">
-                                <option v-for="budget in budgets" :value="budget">{{ budget.name }}</option>
-                            </select>
-                        </label>
+                      <label>
+                        Select Budgets:
+                        <select v-model="selected" multiple @change="updateChart">
+                          <option v-for="budget in budgets" :value="budget">{{ budget.name }}</option>
+                        </select>
+                      </label>
                     </div>
-                </div>
-                <div class="row" v-if="loading">
+                  </div>
+                  <div class="row" v-if="loading">
                     <div class="col m12">
-                        <spinner></spinner>
+                      <spinner></spinner>
                     </div>
-                </div>
-                <div class="row" v-else>
+                  </div>
+                  <div class="row" v-else>
                     <div class="col m12">
-                        <line-chart :chart-data="chartData" :options="options"></line-chart>
+                      <line-chart :chart-data="chartData" :options="options"></line-chart>
                     </div>
+                  </div>
                 </div>
             </div>
             <div class="col m12 full" data-aos="fade-in" v-else>

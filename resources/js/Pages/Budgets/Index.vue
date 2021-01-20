@@ -16,11 +16,11 @@
                 </div>
               </a>
               <div class="col s12 m2">
-                <a class="collection-item cursor-pointer full-width center-align hoverable tooltipped" data-position="bottom" data-tooltip="Delete Budget" @click="deleteBudget(budget)"><i class="material-icons">delete</i></a>
+                <a class="collection-item cursor-pointer full-width center-align hoverable" @click="deleteBudget(budget)"><i class="material-icons">delete</i></a>
               </div>
             </div>
           </div>
-          <inertia-link :href="$route('budgets.create')" class="collection-item btn full-width tooltipped" data-position="bottom" data-tooltip="Create New Budget"><i class="center-align material-icons">add</i></inertia-link>
+          <inertia-link :href="$route('budgets.create')" class="collection-item btn full-width"><i class="center-align material-icons">add</i></inertia-link>
         </div>
       </div>
       <div class="col s12" data-aos="fade-in" v-else>

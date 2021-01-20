@@ -20,8 +20,8 @@
         <h2 class="center-align">Totals</h2>
         <div class="row">
             <div class="col s12">
-                <total-table data-aos="fade-in-up" :income="total_income" :expense="total_expense"></total-table>
                 <message v-if="prompt" :success="success" :message="message"></message>
+                <total-table data-aos="fade-in-up" :income="total_income" :expense="total_expense"></total-table>
             </div>
         </div>
     </div>

@@ -21,5 +21,7 @@ export default {
 </script>
 
 <style scoped>
-
+  .card-panel {
+    padding: 8px
+  }
 </style>
