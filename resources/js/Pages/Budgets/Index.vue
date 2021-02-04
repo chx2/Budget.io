@@ -3,9 +3,14 @@
     <h1 class="center-align">Budgets</h1>
     <div class="divider"/>
     <div class="row">
-      <div class="col s12" v-if="budgets.length > 0">
+      <div class="col s12" v-if="searchable.length > 0">
+        <div class="row">
+          <div class="input-field col s12">
+            <input autofocus @keydown="search(query)" v-model="query" placeholder="Enter a budget name..." id="budget" type="text">
+          </div>
+        </div>
         <div data-aos="fade-up" class="collection">
-          <div class="collection-item" v-for="budget in budgets" :key="budget.id">
+          <div class="collection-item" v-for="budget in searchable" :key="budget.id">
             <div class="row">
               <a v-bind:href="'/budgets/'+ budget.id">
                 <div class="col s12 m4">
@@ -53,6 +58,12 @@ export default {
             lang: 'en',
         }
     },
+    data() {
+      return {
+        searchable: this.budgets,
+        query: null
+      }
+    },
     methods: {
         humanDate: function(timestamp) {
             return dayjs(timestamp).format('MMM D, YYYY')
@@ -62,6 +73,20 @@ export default {
                 budget._method = 'DELETE';
                 this.$inertia.post('/budgets/' + budget.id, budget)
             }
+        },
+        search(query) {
+          let first = [];
+          let others = [];
+          for (let i = 0; i < this.budgets.length; i++) {
+            if (this.budgets[i].name.toLowerCase().indexOf(query.toLowerCase()) === 0) {
+              first.push(this.budgets[i]);
+            } else {
+              others.push(this.budgets[i]);
+            }
+          }
+          first.sort();
+          others.sort();
+          this.searchable = first.concat(others)
         }
     },
     props: {
