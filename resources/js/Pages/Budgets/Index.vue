@@ -3,14 +3,14 @@
     <h1 class="center-align">Budgets</h1>
     <div class="divider"/>
     <div class="row">
-      <div class="col s12" v-if="searchable.length > 0">
+      <div class="col s12" v-if="budgets.length > 0">
         <div class="row">
           <div class="input-field col s12">
             <input autofocus @keydown="search(query)" v-model="query" placeholder="Enter a budget name..." id="budget" type="text">
           </div>
         </div>
         <div data-aos="fade-up" class="collection">
-          <div class="collection-item" v-for="budget in searchable" :key="budget.id">
+          <div class="collection-item" v-for="budget in budgets" :key="budget.id">
             <div class="row">
               <a v-bind:href="'/budgets/'+ budget.id">
                 <div class="col s12 m4">
@@ -60,7 +60,6 @@ export default {
     },
     data() {
       return {
-        searchable: this.budgets,
         query: null
       }
     },
@@ -86,7 +85,7 @@ export default {
           }
           first.sort();
           others.sort();
-          this.searchable = first.concat(others)
+          this.budgets = first.concat(others)
         }
     },
     props: {
