@@ -4,7 +4,7 @@
     <div class="divider"/>
     <div class="row">
       <div class="col s12" v-if="budgets.length > 0">
-        <div class="row">
+        <div class="row" v-if="budgets.length > 1">
           <div class="input-field col s12">
             <input autofocus @keydown="search(query)" v-model="query" placeholder="Enter a budget name..." id="budget" type="text">
           </div>
