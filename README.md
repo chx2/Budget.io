@@ -21,6 +21,8 @@ and expense statements separately.
 creating budgets.  Learn through various charts about 
 tips for improving areas of your budget and suggested 
 improvements.
+  
+**Note: This project is currently in alpha. Changes made to it currently may/may not cause unexpected changes to core application functionality. Contact me if you're interested into moving this application into a more stable version.**
 
 ## Installing Budget.io
 1. Create the intial project by running the following command via [Composer](https://getcomposer.org/)
