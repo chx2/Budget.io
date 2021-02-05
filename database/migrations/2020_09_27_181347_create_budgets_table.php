@@ -16,7 +16,7 @@ class CreateBudgetsTable extends Migration
         Schema::create('budgets', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('name');
-            $table->integer('user_id');
+            $table->foreignId('user_id')->references('id')->on('users');
             $table->timestamp('start_date')->nullable()->default(null);
             $table->timestamp('end_date')->nullable()->default(null);
             $table->softDeletes();
