@@ -17,7 +17,7 @@ class CreateIncomesTable extends Migration
             $table->bigIncrements('id');
             $table->foreignId('budget_id')->references('id')->on('budgets')->onDelete('cascade');;
             $table->text('source');
-            $table->decimal('amount');
+            $table->decimal('amount', 14, 2);
             $table->longText('notes')->nullable();
             $table->timestamps();
         });
