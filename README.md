@@ -3,6 +3,7 @@
 </p>
 
 ![Laravel](https://github.com/chx2/Budget.io/workflows/Laravel/badge.svg?branch=master)
+[![License](https://poser.pugx.org/chx2/budget.io/license)](//packagist.org/packages/chx2/budget.io)
 
 ## About Budget.io
 
