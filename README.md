@@ -2,6 +2,8 @@
   <img src="https://github.com/chx2/Budget.io/blob/master/public/img/logo.png" alt="Budget.io Logo">
 </p>
 
+![Laravel](https://github.com/chx2/Budget.io/workflows/Laravel/badge.svg?branch=master)
+
 ## About Budget.io
 
 Budget.io is a web-based budget application written in the 
