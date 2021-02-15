@@ -20,7 +20,7 @@
                   <p class="green-text center-align">{{ humanDate(budget.start_date) }} - {{ humanDate(budget.end_date) }}</p>
                 </div>
               </a>
-              <div class="col s12 m2">
+              <div class="col s12 m4">
                 <a class="collection-item cursor-pointer full-width center-align hoverable" @click="deleteBudget(budget)"><i class="material-icons">delete</i></a>
               </div>
             </div>
