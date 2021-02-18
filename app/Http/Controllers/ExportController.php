@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
-use PDF;
+use niklasravnsborg\LaravelPdf\Pdf;
 use App\Models\Budget;
 use Illuminate\Http\Request;
 

@@ -7,7 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
-use PDF;
+use niklasravnsborg\LaravelPdf\Pdf;
 
 class ReportController extends Controller
 {
