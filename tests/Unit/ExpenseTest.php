@@ -12,9 +12,9 @@ class ExpenseTest extends TestCase
      *
      * @return void
      */
-    public function test_example()
+    public function test_can_create_expenses()
     {
-        Expense::factory()->count(3)->create();
-        $this->assertDatabaseCount('expenses', 3);
+        Expense::factory()->create();
+        $this->assertDatabaseCount('expenses', 1);
     }
 }

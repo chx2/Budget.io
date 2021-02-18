@@ -14,7 +14,7 @@ class IncomeTest extends TestCase
      */
     public function test_can_create_incomes()
     {
-        Income::factory()->count(3)->create();
-        $this->assertDatabaseCount('incomes', 3);
+        Income::factory()->create();
+        $this->assertDatabaseCount('incomes', 1);
     }
 }

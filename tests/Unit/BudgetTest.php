@@ -16,23 +16,23 @@ class BudgetTest extends TestCase
      */
     public function test_can_create_budgets()
     {
-        Budget::factory()->count(3)->create();
-        $this->assertDatabaseCount('budgets', 3);
+        Budget::factory()->create();
+        $this->assertDatabaseCount('budgets', 1);
     }
 
     public function test_can_attach_incomes()
     {
         Budget::factory()
-            ->has(Income::factory()->count(3), 'incomes')
+            ->has(Income::factory(), 'incomes')
             ->create();
-        $this->assertDatabaseCount('incomes', 3);
+        $this->assertDatabaseCount('incomes', 1);
     }
 
     public function test_can_attach_expenses()
     {
         Budget::factory()
-            ->has(Expense::factory()->count(3), 'expenses')
+            ->has(Expense::factory(), 'expenses')
             ->create();
-        $this->assertDatabaseCount('expenses', 3);
+        $this->assertDatabaseCount('expenses', 1);
     }
 }
