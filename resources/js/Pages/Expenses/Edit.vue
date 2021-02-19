@@ -7,6 +7,15 @@
                   <h1 class="center-align">Edit Expense</h1>
                   <div class="divider"></div>
                   <div class="row">
+                    <div class="col s12">
+                      <div class="input-field">
+                        <input id="due_date" type="text" class="datepicker validate" name="due_date" v-model.lazy="form.due_date">
+                        <label for="due_date">Due Date</label>
+                        <div data-aos="fade-in-up" class="error-field" v-if="errors.due_date">{{ errors.due_date[0] }}</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
                       <div class="col s12 m6">
                           <label>
                               Expense Source
@@ -43,6 +52,7 @@
 
 <script>
 import Layout from "../../components/Layout";
+import dayjs from "dayjs";
 export default {
     name: "Edit",
     layout: Layout,
@@ -56,6 +66,7 @@ export default {
     data() {
         return {
             form: {
+                due_date: dayjs(this.expense.due_date).format('MMM D, YYYY'),
                 source: this.expense.source,
                 amount: this.expense.amount,
                 notes: this.expense.notes,
