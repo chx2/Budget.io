@@ -7,6 +7,15 @@
                   <h1 class="center-align">Add Income</h1>
                   <div class="divider"></div>
                   <div class="row">
+                    <div class="col s12">
+                      <div class="input-field">
+                        <input id="due_date" type="text" class="datepicker validate" name="due_date" v-model.lazy="form.due_date">
+                        <label for="due_date">Due Date</label>
+                        <div data-aos="fade-in-up" class="error-field" v-if="errors.due_date">{{ errors.due_date[0] }}</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
                       <div class="col s12 m6">
                           <label>
                               Income Source
@@ -56,6 +65,7 @@ export default {
     data() {
         return {
             form: {
+                due_date: null,
                 source: null,
                 amount: null,
                 notes: null,

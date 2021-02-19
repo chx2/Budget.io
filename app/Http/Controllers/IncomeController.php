@@ -41,6 +41,7 @@ class IncomeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'due_date'  => ['required'],
             'source'    => ['required', 'max:50'],
             'amount'    => ['required', 'numeric'],
             'budget_id' => ['required'],
@@ -48,6 +49,7 @@ class IncomeController extends Controller
 
         $income = new Income();
         $income->budget_id = $request->budget_id;
+        $income->due_date = Carbon::parse($request->due_date);
         $income->source = $request->source;
         $income->amount = $request->amount;
         $income->notes = $request->notes;
@@ -94,11 +96,13 @@ class IncomeController extends Controller
     public function update(Request $request, Income $income)
     {
         $request->validate([
+            'due_date'  => ['required'],
             'source'    => ['required', 'max:50'],
             'amount'    => ['required', 'numeric']
         ]);
 
         $new = Income::findOrFail($income->id);
+        $new->due_date = Carbon::parse($request->due_date);
         $new->source = $request->source;
         $new->amount = $request->amount;
         $new->notes = $request->notes;

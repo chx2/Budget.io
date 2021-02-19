@@ -1,7 +1,7 @@
 <template>
     <div>
-        <h1 id="income" class="center-align">Budget for</h1>
-        <h2 class="center-align">{{ humanDate(budget.start_date) }} - {{ humanDate(budget.end_date) }}</h2>
+        <h1 id="income" class="center-align">{{ budget.name }}</h1>
+        <h3 class="center-align">{{ humanDate(budget.start_date) }} - {{ humanDate(budget.end_date) }}</h3>
         <div class="divider"/>
         <h2 class="center-align">Incomes</h2>
         <div class="row">

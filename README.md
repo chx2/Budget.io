@@ -69,7 +69,7 @@ In order to set this up for testing, follow the installation steps above.  It is
 php artisan test
 ```
 
-Additionally, you can use a provided custom command for calling [Psalm](https://psalm.dev/):
+Additionally, you can run [Psalm](https://psalm.dev/) as an optional test. This may be adopted into the future workflow:
 ```
-php artisan psalm
+./vendor/bin/psalm --no-cache
 ```

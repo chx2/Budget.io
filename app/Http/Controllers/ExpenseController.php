@@ -41,6 +41,7 @@ class ExpenseController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'due_date'  => ['required'],
             'source'    => ['required', 'max:50'],
             'amount'    => ['required', 'numeric'],
             'budget_id' => ['required'],
@@ -48,6 +49,7 @@ class ExpenseController extends Controller
 
         $expense = new Expense();
         $expense->budget_id = $request->budget_id;
+        $expense->due_date = Carbon::parse($request->due_date);
         $expense->source = $request->source;
         $expense->amount = $request->amount;
         $expense->notes = $request->notes;
@@ -94,11 +96,13 @@ class ExpenseController extends Controller
     public function update(Request $request, Expense $expense)
     {
         $request->validate([
+            'due_date'  => ['required'],
             'source'    => ['required', 'max:50'],
             'amount'    => ['required', 'numeric']
         ]);
 
         $new = Expense::findOrFail($expense->id);
+        $new->due_date = Carbon::parse($request->due_date);
         $new->source = $request->source;
         $new->amount = $request->amount;
         $new->notes = $request->notes;

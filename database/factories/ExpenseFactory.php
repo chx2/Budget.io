@@ -24,6 +24,7 @@ class ExpenseFactory extends Factory
     {
         return [
             'budget_id' => Budget::factory()->create()->id,
+            'due_date' => $this->faker->dateTime,
             'source' => $this->faker->sentence,
             'amount' => $this->faker->randomNumber(),
             'notes' => $this->faker->sentence
