@@ -25,8 +25,6 @@ creating budgets.  Learn through various charts about
 tips for improving areas of your budget and suggested 
 improvements.
   
-**Note: This project is currently in alpha. Changes made to it currently may/may not cause unexpected changes to core application functionality. Contact me if you're interested into moving this application into a more stable version.**
-
 ## Installing Budget.io
 1. Create the intial project by running the following command via [Composer](https://getcomposer.org/)
 ```
@@ -61,3 +59,17 @@ php artisan migrate
 ```
 
 5. See [deploying Laravel applications.](https://laravel.com/docs/8.x/deployment#introduction)
+
+## Developing Budget.io
+
+This project is currently in alpha. Changes made to it currently may/may not cause unexpected changes to core application functionality. Contact me if you're interested into moving this application into a more stable version.
+
+In order to set this up for testing, follow the installation steps above.  It is recommended that you run the provided tests before committing:
+```
+php artisan test
+```
+
+Additionally, you can use a provided custom command for calling [Psalm](https://psalm.dev/):
+```
+php artisan psalm
+```
