@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Budget;
 use App\Models\Income;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Str;
 use Inertia\Inertia;
 
 class IncomeController extends Controller
@@ -43,11 +45,14 @@ class IncomeController extends Controller
         $request->validate([
             'source'    => ['required', 'max:50'],
             'amount'    => ['required', 'numeric'],
-            'budget_id' => ['required'],
+            'budget' => ['required'],
         ]);
 
+        $budget = Budget::where('uid', $request->budget)->first();
+
         $income = new Income();
-        $income->budget_id = $request->budget_id;
+        $income->budget_id = $budget->id;
+        $income->uid = Str::uuid();
         $income->source = $request->source;
         $income->amount = $request->amount;
         $income->notes = $request->notes;
@@ -55,7 +60,7 @@ class IncomeController extends Controller
         $income->updated_at = Carbon::now();
         $income->save();
 
-        return Redirect::route('budgets.show', $request->budget_id);
+        return Redirect::route('budgets.show', $request->budget);
     }
 
     /**
@@ -77,9 +82,9 @@ class IncomeController extends Controller
      */
     public function edit(Income $income)
     {
-        $edit = Income::findOrFail($income->id);
+        $edit = Income::where('uid', $income->uid)->first();
         return Inertia::render('Incomes/Edit', [
-            'budget'   => $income->budget_id,
+            'budget'   => $edit->budget->uid,
             'income'   => $edit
         ]);
     }
@@ -99,13 +104,14 @@ class IncomeController extends Controller
         ]);
 
         $new = Income::findOrFail($income->id);
+        $new->uid = Str::uuid();
         $new->source = $request->source;
         $new->amount = $request->amount;
         $new->notes = $request->notes;
         $new->updated_at = Carbon::now();
         $new->save();
 
-        return Redirect::route('budgets.show', $request->budget_id);
+        return Redirect::route('budgets.show', $request->budget);
     }
 
     /**
@@ -116,7 +122,7 @@ class IncomeController extends Controller
      */
     public function destroy(Income $income)
     {
-        $budget = $income->budget_id;
+        $budget = $income->budget->uid;
         $income->delete();
         return Redirect::route('budgets.show', $budget);
     }

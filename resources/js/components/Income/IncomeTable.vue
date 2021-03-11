@@ -15,7 +15,7 @@
                     <td>{{ income.source }}</td>
                     <td>{{ numberWithCommas(income.amount) }}</td>
                     <td class="cursor-pointer hoverable center-align modal-trigger" data-target="modalIncome" @click="notesModal(income.notes)"><i class="material-icons black-text">open_in_new</i></td>
-                    <td class="cursor-pointer hoverable center-align"><inertia-link :href="$route('incomes.edit', income.id)" class="black-text"><i class="center-align material-icons">edit</i></inertia-link></td>
+                    <td class="cursor-pointer hoverable center-align"><inertia-link :href="$route('incomes.edit', income.uid)" class="black-text"><i class="center-align material-icons">edit</i></inertia-link></td>
                     <td class="cursor-pointer hoverable center-align" @click="deleteIncome(income)"><i class="material-icons black-text">delete</i></td>
                 </tr>
             </tbody>
@@ -64,7 +64,7 @@ export default {
     methods: {
         deleteIncome(income) {
             income._method = 'DELETE';
-            this.$inertia.post('/incomes/' + income.id, income)
+            this.$inertia.post('/incomes/' + income.uid, income)
         },
         numberWithCommas(number) {
             return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -74,7 +74,7 @@ export default {
         }
     },
     props: {
-        budget: Number,
+        budget: String,
         incomes: Array
     }
 }

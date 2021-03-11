@@ -15,6 +15,7 @@ class CreateBudgetsTable extends Migration
     {
         Schema::create('budgets', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->uuid('uid');
             $table->text('name');
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');;
             $table->timestamp('start_date')->nullable()->default(null);

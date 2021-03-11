@@ -24,6 +24,7 @@ class IncomeFactory extends Factory
     {
         return [
             'budget_id' => Budget::factory()->create()->id,
+            'uid' => $this->faker->uuid,
             'source' => $this->faker->sentence,
             'amount' => $this->faker->randomNumber(),
             'notes' => $this->faker->sentence

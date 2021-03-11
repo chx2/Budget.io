@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Income extends Model
 {
     use HasFactory;
+
+    public function getRouteKeyName()
+    {
+        return 'uid';
+    }
+
+    public function budget()
+    {
+        return $this->belongsTo(Budget::class);
+    }
 }

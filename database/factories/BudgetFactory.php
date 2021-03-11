@@ -24,6 +24,7 @@ class BudgetFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
+            'uid' => $this->faker->uuid,
             'user_id' => User::factory()->create()->id,
             'start_date' => $this->faker->dateTime,
             'end_date' => $this->faker->dateTime,

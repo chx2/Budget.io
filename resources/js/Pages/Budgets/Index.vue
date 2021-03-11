@@ -12,7 +12,7 @@
         <div data-aos="fade-up" class="collection">
           <div class="collection-item" v-for="budget in budgets" :key="budget.id">
             <div class="row">
-              <a v-bind:href="'/budgets/'+ budget.id">
+              <a v-bind:href="'/budgets/'+ budget.uid">
                 <div class="col s12 m4">
                   <p class="green-text center-align">{{ budget.name }}</p>
                 </div>
@@ -70,7 +70,7 @@ export default {
         deleteBudget(budget) {
             if(confirm('Are you sure you want to delete this budget? You will lose all records associated with this budget.')) {
                 budget._method = 'DELETE';
-                this.$inertia.post('/budgets/' + budget.id, budget)
+                this.$inertia.post('/budgets/' + budget.uid, budget)
             }
         },
         search(query) {
