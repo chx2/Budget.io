@@ -1,4 +1,4 @@
-name: Laravel
+name: Tests
 
 on:
   push:
@@ -32,6 +32,8 @@ jobs:
       run: |
         mkdir -p database
         touch database/database.sqlite
+    - name: Psalm Analysis
+      run: vendor/bin/psalm
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
         DB_CONNECTION: sqlite
