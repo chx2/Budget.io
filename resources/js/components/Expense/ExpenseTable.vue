@@ -67,7 +67,7 @@ export default {
         },
         deleteExpense(expense) {
             expense._method = 'DELETE';
-            this.$inertia.post('/expenses/' + expense.id, expense)
+            this.$inertia.post('/expenses/' + expense.uid, expense)
         },
         numberWithCommas(number) {
             return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");

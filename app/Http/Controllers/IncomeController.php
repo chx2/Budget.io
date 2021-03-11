@@ -122,7 +122,7 @@ class IncomeController extends Controller
      */
     public function destroy(Income $income)
     {
-        $budget = $income->budget_id;
+        $budget = $income->budget->uid;
         $income->delete();
         return Redirect::route('budgets.show', $budget);
     }

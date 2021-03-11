@@ -122,7 +122,7 @@ class ExpenseController extends Controller
      */
     public function destroy(Expense $expense)
     {
-        $budget = $expense->budget_id;
+        $budget = $expense->budget->uid;
         $expense->delete();
         return Redirect::to('/budgets/' . $budget . '#expense');
     }

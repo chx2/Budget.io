@@ -70,7 +70,7 @@ export default {
         deleteBudget(budget) {
             if(confirm('Are you sure you want to delete this budget? You will lose all records associated with this budget.')) {
                 budget._method = 'DELETE';
-                this.$inertia.post('/budgets/' + budget.id, budget)
+                this.$inertia.post('/budgets/' + budget.uid, budget)
             }
         },
         search(query) {
