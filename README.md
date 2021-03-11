@@ -4,6 +4,9 @@
 
 ![Laravel](https://github.com/chx2/Budget.io/workflows/Laravel/badge.svg?branch=master)
 [![License](https://poser.pugx.org/chx2/budget.io/license)](//packagist.org/packages/chx2/budget.io)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/chx2/Budget.io/graphs/commit-activity)
+[![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://budget.chrish.me)
+
 
 ## About Budget.io
 
