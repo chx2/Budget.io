@@ -9,6 +9,11 @@ class Budget extends Model
 {
     use HasFactory;
 
+    public function getRouteKeyName()
+    {
+        return 'uid';
+    }
+
     public function incomes()
     {
         return $this->hasMany('App\Models\Income');
