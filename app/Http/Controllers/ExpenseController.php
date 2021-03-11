@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Budget;
 use App\Models\Expense;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Str;
 use Inertia\Inertia;
 
 class ExpenseController extends Controller
@@ -43,11 +45,14 @@ class ExpenseController extends Controller
         $request->validate([
             'source'    => ['required', 'max:50'],
             'amount'    => ['required', 'numeric'],
-            'budget_id' => ['required'],
+            'budget' => ['required'],
         ]);
 
+        $budget = Budget::where('uid', $request->budget)->first();
+
         $expense = new Expense();
-        $expense->budget_id = $request->budget_id;
+        $expense->budget_id = $budget->id;
+        $expense->uid = Str::uuid();
         $expense->source = $request->source;
         $expense->amount = $request->amount;
         $expense->notes = $request->notes;
@@ -55,7 +60,7 @@ class ExpenseController extends Controller
         $expense->updated_at = Carbon::now();
         $expense->save();
 
-        return Redirect::route('budgets.show', $request->budget_id);
+        return Redirect::route('budgets.show', $request->budget);
     }
 
     /**
@@ -77,9 +82,9 @@ class ExpenseController extends Controller
      */
     public function edit(Expense $expense)
     {
-        $edit = Expense::findOrFail($expense->id);
+        $edit = Expense::where('uid', $expense->uid)->first();
         return Inertia::render('Expenses/Edit', [
-            'budget'   => $expense->budget_id,
+            'budget'   => $expense->budget->uid,
             'expense'   => $edit
         ]);
     }
@@ -99,13 +104,14 @@ class ExpenseController extends Controller
         ]);
 
         $new = Expense::findOrFail($expense->id);
+        $new->uid = Str::uuid();
         $new->source = $request->source;
         $new->amount = $request->amount;
         $new->notes = $request->notes;
         $new->updated_at = Carbon::now();
         $new->save();
 
-        return Redirect::route('budgets.show', $request->budget_id);
+        return Redirect::route('budgets.show', $request->budget);
     }
 
     /**

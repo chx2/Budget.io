@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
+use Illuminate\Support\Str;
 
 class BudgetController extends Controller
 {
@@ -49,6 +50,7 @@ class BudgetController extends Controller
         ]);
 
         $budget = new Budget();
+        $budget->uid = Str::uuid();
         $budget->name = $request->name;
         $budget->user_id = Auth::id();
         $budget->start_date = Carbon::parse($request->start_date);
@@ -68,7 +70,7 @@ class BudgetController extends Controller
      */
     public function show(Budget $budget)
     {
-        $found = Budget::where('id', $budget->id)
+        $found = Budget::where('uid', $budget->uid)
             ->where('user_id', Auth::id())
             ->firstOrFail();
         $incomes = $budget->incomes()->get()->toArray();
