@@ -10,7 +10,7 @@
                             <label>
                                 Select a Budget:
                                 <select v-model="form.budget">
-                                    <option v-for="budget in budgets" :value="budget.id">{{ budget.name }}</option>
+                                    <option v-for="budget in budgets" :value="budget.uid">{{ budget.name }}</option>
                                 </select>
                             </label>
                             <div data-aos="fade-in-up" class="error-field" v-if="errors.budget">Please select a budget</div>

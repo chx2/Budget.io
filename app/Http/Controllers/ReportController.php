@@ -30,7 +30,7 @@ class ReportController extends Controller
             'type' => ['required'],
         ]);
 
-        $budget = Budget::where('id', $request->budget)
+        $budget = Budget::where('uid', $request->budget)
             ->where('user_id', Auth::id())
             ->firstOrFail();
         $incomes = $budget->incomes()->get();
