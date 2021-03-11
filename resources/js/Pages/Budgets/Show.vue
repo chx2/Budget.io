@@ -6,14 +6,14 @@
         <h2 class="center-align">Incomes</h2>
         <div class="row">
             <div class="col s12">
-                <income-table data-aos="fade-in-up" :budget="budget.id" :incomes="incomes"></income-table>
+                <income-table data-aos="fade-in-up" :budget="budget.uid" :incomes="incomes"></income-table>
             </div>
         </div>
         <div class="divider"></div>
         <h2 id="expense" class="center-align">Expenses</h2>
         <div class="row">
             <div class="col s12">
-                <expense-table data-aos="fade-in-up" :budget="budget.id" :expenses="expenses"></expense-table>
+                <expense-table data-aos="fade-in-up" :budget="budget.uid" :expenses="expenses"></expense-table>
             </div>
         </div>
         <div class="divider"></div>

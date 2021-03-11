@@ -15,7 +15,7 @@
                     <td>{{ expense.source }}</td>
                     <td>{{ numberWithCommas(expense.amount) }}</td>
                     <td class="cursor-pointer hoverable center-align modal-trigger" data-target="modalExpense" @click="notesModal(expense.notes)"><i class="material-icons black-text">open_in_new</i></td>
-                    <td class="cursor-pointer hoverable center-align"><inertia-link :href="$route('expenses.edit', expense.id)" class="black-text"><i class="center-align material-icons">edit</i></inertia-link></td>
+                    <td class="cursor-pointer hoverable center-align"><inertia-link :href="$route('expenses.edit', expense.uid)" class="black-text"><i class="center-align material-icons">edit</i></inertia-link></td>
                     <td class="cursor-pointer hoverable center-align" @click="deleteExpense(expense)"><i class="material-icons">delete</i></td>
                 </tr>
             </tbody>
@@ -77,7 +77,7 @@ export default {
         }
     },
     props: {
-        budget: Number,
+        budget: String,
         expenses: Array
     }
 }

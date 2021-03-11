@@ -59,7 +59,7 @@ export default {
                 source: null,
                 amount: null,
                 notes: null,
-                budget_id: this.budget
+                budget: this.budget
             }
         }
     },
