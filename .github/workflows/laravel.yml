@@ -33,7 +33,7 @@ jobs:
         mkdir -p database
         touch database/database.sqlite
     - name: Psalm Analysis
-      run: vendor/bin/psalm
+      uses: mickaelandrieu/psalm-ga@v1.1
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
         DB_CONNECTION: sqlite
