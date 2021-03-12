@@ -72,7 +72,7 @@ In order to set this up for testing, follow the installation steps above.  It is
 php artisan test
 ```
 
-Additionally, you can use a provided custom command for calling [Psalm](https://psalm.dev/):
+Then run Psalm for code linting:
 ```
-php artisan psalm
+./vendor/bin/psalm --no-cache
 ```
