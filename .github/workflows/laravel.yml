@@ -39,6 +39,3 @@ jobs:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
       run: vendor/bin/phpunit
-    - name: Deploy to Laravel Forge
-      run: curl ${{ secrets.FORGE_DEPLOYMENT_WEBHOOK }}
-
