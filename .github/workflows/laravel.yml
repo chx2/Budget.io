@@ -39,5 +39,3 @@ jobs:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
       run: vendor/bin/phpunit
-    - name: Laravel PHP Insights Action
-      uses: stefanzweifel/laravel-phpinsights-action@v1.1.1
