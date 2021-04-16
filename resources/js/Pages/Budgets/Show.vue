@@ -1,22 +1,15 @@
 <template>
     <div>
-        <h1 id="income" class="center-align">Budget for</h1>
-        <h2 class="center-align">{{ humanDate(budget.start_date) }} - {{ humanDate(budget.end_date) }}</h2>
+        <h1 id="income" class="center-align">{{ budget.name }}</h1>
         <div class="divider"/>
-        <h2 class="center-align">Incomes</h2>
         <div class="row">
-            <div class="col s12">
+            <div class="col s12 m12 l6">
                 <income-table data-aos="fade-in-up" :budget="budget.uid" :incomes="incomes"></income-table>
             </div>
+          <div class="col s12 m12 l6">
+            <expense-table data-aos="fade-in-up" :budget="budget.uid" :expenses="expenses"></expense-table>
+          </div>
         </div>
-        <div class="divider"></div>
-        <h2 id="expense" class="center-align">Expenses</h2>
-        <div class="row">
-            <div class="col s12">
-                <expense-table data-aos="fade-in-up" :budget="budget.uid" :expenses="expenses"></expense-table>
-            </div>
-        </div>
-        <div class="divider"></div>
         <h2 class="center-align">Totals</h2>
         <div class="row">
             <div class="col s12">
