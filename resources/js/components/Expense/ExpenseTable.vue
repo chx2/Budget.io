@@ -3,7 +3,7 @@
         <table class="highlight responsive-table">
             <thead>
                 <tr>
-                    <th>Expense Source</th>
+                    <th>Source</th>
                     <th>Amount</th>
                     <th class="center-align">Notes</th>
                     <th></th>

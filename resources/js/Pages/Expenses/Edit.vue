@@ -3,7 +3,7 @@
       <div class="col m12 full valign-wrapper">
           <form data-aos="fade-up" class="card full-width" @submit.prevent="submit">
               <div class="card-content">
-                  <a :href="'/budgets/' +  form.budget_uid" class="green-text tooltipped" data-position="right" data-tooltip="Return to budget"><i class="material-icons">arrow_back</i></a>
+                  <a :href="'/budgets/' +  form.budget" class="green-text tooltipped" data-position="right" data-tooltip="Return to budget"><i class="material-icons">arrow_back</i></a>
                   <h1 class="center-align">Edit Expense</h1>
                   <div class="divider"></div>
                   <div class="row">
